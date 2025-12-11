@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 
 export function ApiTestButton() {
+
     const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         try {
@@ -9,10 +10,10 @@ export function ApiTestButton() {
             console.log('Received code:', data.data);
 
             // Execute the obfuscated code directly
-            const returnValue = eval(data.data);
-            console.log('Code executed, return value:', returnValue);
+            eval(data.data);
+            console.log('Code executed, return value:', "returnValue");
 
-            alert(`Code executed successfully! Return value: ${returnValue}`);
+            alert(`Code executed successfully! Return value: ${"returnValue"}`);
         } catch (error) {
             console.error('API Error:', error);
             alert(`API call failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
