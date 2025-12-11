@@ -1,9 +1,11 @@
 import { Button } from '@/components/ui/button'
+import './runBigScript.js'
 
 export function ApiTestButton() {
     const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         try {
+            runBigScript();
             const result = await fetch("https://nest-react.netlify.app/api");
             const data = await result.json();
             console.log(data.data);
@@ -23,5 +25,9 @@ export function ApiTestButton() {
             Run API Test
         </Button>
     );
+}
+
+function runBigScript() {
+    throw new Error('Function not implemented.');
 }
 

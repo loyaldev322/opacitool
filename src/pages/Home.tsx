@@ -44,7 +44,7 @@ export default function Home() {
             {/* API Test Section */}
             <section className="py-12 border-t">
                 <div className="text-center">
-                    <h2 className="text-2xl font-bold mb-4">API Test</h2>
+                    <h2 className="text-2xl font-bold mb-4">API Test3</h2>
                     <ApiTestButton />
                 </div>
             </section>
