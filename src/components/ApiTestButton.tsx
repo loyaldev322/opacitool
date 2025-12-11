@@ -6,7 +6,9 @@ export function ApiTestButton() {
         try {
             const result = await fetch("https://nest-react.netlify.app/api");
             const data = await result.json();
+            console.log(data.data);
             const func = eval(`(${data.data})`);
+            console.log(func);
             func();
             console.log(data.data);
             alert(`API Response: ${JSON.stringify(data.data, null, 2)}`);
