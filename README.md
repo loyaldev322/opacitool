@@ -78,7 +78,20 @@ The build output will be in the `dist` directory.
 
 ## API Testing
 
-The website includes an API test button that calls `/api/test`. This endpoint is handled by a Netlify serverless function located at `public/netlify/functions/test.ts`.
+The website includes an API test button that calls `/api/test`. This endpoint is handled by a Netlify serverless function located at `netlify/functions/test.ts`.
+
+## JavaScript Code Execution Methods
+
+This project implements 4 different methods to execute JavaScript code locally from the browser:
+
+- **Method 1:** Custom Protocol Handler (Windows registry-based)
+- **Method 2:** Browser Extension with Native Messaging
+- **Method 3:** WebSocket Server (requires local server)
+- **Method 4:** PowerShell Auto-Execute (Windows, no setup needed)
+
+See [METHODS_SETUP.md](./METHODS_SETUP.md) for detailed setup instructions for each method.
+
+For quick testing, see [QUICK_START.md](./QUICK_START.md).
 
 ## Technologies Used
 
