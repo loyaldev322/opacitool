@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "JavaScript Code Runner",
+  "version": "1.0.0",
+  "description": "Execute JavaScript code from web pages - No setup required!",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*.netlify.app/*",
+    "http://localhost:*",
+    "http://127.0.0.1:*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "https://*.netlify.app/*",
+      "http://localhost:*"
+    ]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "JS Code Runner"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
+

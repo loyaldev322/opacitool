@@ -82,16 +82,24 @@ The website includes an API test button that calls `/api/test`. This endpoint is
 
 ## JavaScript Code Execution Methods
 
-This project implements 4 different methods to execute JavaScript code locally from the browser:
+This project implements **two no-setup methods** to execute JavaScript code:
 
-- **Method 1:** Custom Protocol Handler (Windows registry-based)
-- **Method 2:** Browser Extension with Native Messaging
-- **Method 3:** WebSocket Server (requires local server)
-- **Method 4:** PowerShell Auto-Execute (Windows, no setup needed)
+- **Extension Method:** Browser extension (one-time install, runs locally in browser)
+- **Cloud Method:** Cloud-based execution (zero setup, works everywhere)
 
-See [METHODS_SETUP.md](./METHODS_SETUP.md) for detailed setup instructions for each method.
+### ✅ Recommended Solution
 
-For quick testing, see [QUICK_START.md](./QUICK_START.md).
+**See [NEW_SOLUTION.md](./NEW_SOLUTION.md) for the latest no-setup solution!**
+
+The new solution provides:
+- ✅ **No setup required** on user's PC (except one-time extension install)
+- ✅ Works on **all platforms** (Windows, Mac, Linux)
+- ✅ **Cloud execution** works immediately
+- ✅ **Extension** runs code locally in browser
+
+### Legacy Methods
+
+The previous 4 methods (protocol handler, native messaging, local server, PowerShell) required setup or had platform limitations. See [METHODS_SETUP.md](./METHODS_SETUP.md) for reference (not recommended for production).
 
 ## Technologies Used
 
