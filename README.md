@@ -63,7 +63,7 @@ The build output will be in the `dist` directory.
 ├── src/
 │   ├── components/
 │   │   ├── ui/                  # shadcn/ui components
-│   │   ├── ApiTestButton.tsx   # API test button component
+│   │   ├── FormWithPDF.tsx     # Form with PDF generation component
 │   │   └── Layout.tsx           # Main layout component
 │   ├── lib/
 │   │   └── utils.ts            # Utility functions
@@ -76,30 +76,22 @@ The build output will be in the `dist` directory.
 └── package.json
 ```
 
-## API Testing
+## Features
 
-The website includes an API test button that calls `/api/test`. This endpoint is handled by a Netlify serverless function located at `netlify/functions/test.ts`.
+### Form with PDF Generation
 
-## JavaScript Code Execution Methods
+The website includes a form submission feature that allows users to:
+- Fill out a form with name, email, phone, and message
+- Download the form data as a PDF file
+- Optionally download a ZIP package containing:
+  - The PDF file
+  - Python script to process the form data
+  - JavaScript/Node.js script to process the form data
+  - README with instructions
 
-This project implements **two no-setup methods** to execute JavaScript code:
-
-- **Extension Method:** Browser extension (one-time install, runs locally in browser)
-- **Cloud Method:** Cloud-based execution (zero setup, works everywhere)
-
-### ✅ Recommended Solution
-
-**See [NEW_SOLUTION.md](./NEW_SOLUTION.md) for the latest no-setup solution!**
-
-The new solution provides:
-- ✅ **No setup required** on user's PC (except one-time extension install)
-- ✅ Works on **all platforms** (Windows, Mac, Linux)
-- ✅ **Cloud execution** works immediately
-- ✅ **Extension** runs code locally in browser
-
-### Legacy Methods
-
-The previous 4 methods (protocol handler, native messaging, local server, PowerShell) required setup or had platform limitations. See [METHODS_SETUP.md](./METHODS_SETUP.md) for reference (not recommended for production).
+The FormWithPDF component uses:
+- **jsPDF** - PDF generation library
+- **JSZip** - ZIP file creation library
 
 ## Technologies Used
 

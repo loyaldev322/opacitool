@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { ApiTestButton } from '@/components/ApiTestButton'
+import { FormWithPDF } from '@/components/FormWithPDF'
 
 export default function Home() {
     return (
@@ -41,12 +41,9 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* API Test Section */}
+            {/* Form Section */}
             <section className="py-12 border-t">
-                <div className="text-center">
-                    <h2 className="text-2xl font-bold mb-4">API Test3</h2>
-                    <ApiTestButton />
-                </div>
+                <FormWithPDF />
             </section>
 
             {/* About Section */}
